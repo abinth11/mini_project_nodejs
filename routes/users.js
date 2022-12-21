@@ -13,6 +13,10 @@ router.get('/', function (req, res, next) {
   if (req.session.loggedIn) {
     res.redirect('/home')
   }
+  else if(req.session.adminLoggedIn)
+  {
+    res.redirect('/admin/adminHome');
+  }
   else {
     res.render('users/login');
   }
